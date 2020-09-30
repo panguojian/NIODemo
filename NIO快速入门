@@ -1,5 +1,4 @@
-|IO|NIO|
-|----|----|
-|面向流（Stream Oriented）|面向缓冲区（Stream Oriented）|
-|堵塞IO(Blocking IO)|非堵塞IO(Non Blocking IO)|
-|(无)|选择器（Selectors）|
+|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |
