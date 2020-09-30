@@ -1,6 +1,6 @@
 # 一、NIO的概述
 JDK 1.4中的java.nio.*包中引入新的Java I/O库，其目的是提高速度。实际上，“旧”的I/O包已经使用NIO重新实现过，即使我们不显式的使用NIO编程，也能从中受益。  
-我们测试一下使用NIO复制文件和传统IO复制文件的性能：
+**我们测试一下使用传统的IO复制文件和NIO复制文件性能：**
 ```java
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -67,4 +67,5 @@ public class SimpleFileTransferTest{
     
 }
 ```
-我分别测试了文件大小为13M，40M，200M的：
+**我分别测试了文件大小为13M，40M，200M的：**
+![]()
