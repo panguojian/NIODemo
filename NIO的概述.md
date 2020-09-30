@@ -68,6 +68,19 @@ public class SimpleFileTransferTest{
 }
 ```
 **我分别测试了文件大小为13M，40M，200M的运行结果：**  
-![](https://github.com/panguojian/NIODemo/blob/master/img/img1.png)  
-![](https://github.com/panguojian/NIODemo/blob/master/img/img2.png)  
-![](https://github.com/panguojian/NIODemo/blob/master/img/img3.png)  
+```console
+    文件大小：200M
+    599:普通字节流
+    910:NIO时间
+```
+```console
+    文件大小：40M
+    98:普通字节流
+    74:NIO时间
+```
+```console
+    文件大小：30M
+    33:普通字节流
+    27:NIO时间
+```
+
