@@ -79,4 +79,34 @@ public static void main(String[] args) {
   System.out.println("put完之后-->mark--->" + byteBuffer.mark());
 }
 ```
+**运行结果**
+```console
+初始时-->limit--->1024
+初始时-->position--->0
+初始时-->capacity--->1024
+初始时-->mark--->java.nio.HeapByteBuffer[pos=0 lim=1024 cap=1024]
+--------------------------------------
+put完之后-->limit--->1024
+put完之后-->position--->6
+put完之后-->capacity--->1024
+put完之后-->mark--->java.nio.HeapByteBuffer[pos=6 lim=1024 cap=1024]
+```
+**现在我想要从缓存区拿数据，怎么拿呀？？NIO给了我们一个flip()方法。这个方法可以改动position和limit的位置！还是上面的代码，我们flip()一下后，再看看4个核心属性的值会发生什么变化：**
+```console
+flip完之后-->limit--->6
+flip完之后-->position--->0
+flip完之后-->capacity--->1024
+flip完之后-->mark--->java.nio.HeapByteBuffer[pos=0 lim=6 cap=1024]
+```
+**很明显的是：limit变成了position的位置了,而position变成了0,看到这里的同学可能就会想到了：当调用完filp()时,limit是限制读到哪里，而position是从哪里读一般我们称filp()为“切换成读模式”每当要从缓存区的时候读取数据时，就调用filp()“切换成读模式”。**  
+**切换成读模式之后，我们就可以读取缓冲区的数据了：**
+```java
+// 创建一个limit()大小的字节数组(因为就只有limit这么多个数据可读)
+byte[] bytes = new byte[byteBuffer.limit()];
 
+// 将读取的数据装进我们的字节数组中
+byteBuffer.get(bytes);
+
+// 输出数据
+System.out.println(new String(bytes, 0, bytes.length));
+```
