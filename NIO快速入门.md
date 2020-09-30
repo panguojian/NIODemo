@@ -53,30 +53,30 @@ Buffer是缓冲区的抽象类：
 |position|位置，表示缓冲区中正在操作数据的位置|
 |mark|标记，表示记录当前position的位置。可以通过reset()恢复mark的位置|  
 
-### 2.1.2 Buffer代码演示
+### 2.1.2 Buffer 代码演示
 **首先展示一下是如何创建缓冲区的，核心变量的值是怎么变化的。**
 ```java
 public static void main(String[] args) {
-// 创建一个缓冲区
-ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+  // 创建一个缓冲区
+  ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
-// 看一下初始时4个核心变量的值
-System.out.println("初始时-->limit--->"+byteBuffer.limit());
-System.out.println("初始时-->position--->"+byteBuffer.position());
-System.out.println("初始时-->capacity--->"+byteBuffer.capacity());
-System.out.println("初始时-->mark--->" + byteBuffer.mark());
+  // 看一下初始时4个核心变量的值
+  System.out.println("初始时-->limit--->"+byteBuffer.limit());
+  System.out.println("初始时-->position--->"+byteBuffer.position());
+  System.out.println("初始时-->capacity--->"+byteBuffer.capacity());
+  System.out.println("初始时-->mark--->" + byteBuffer.mark());
 
-System.out.println("--------------------------------------");
+  System.out.println("--------------------------------------");
 
-// 添加一些数据到缓冲区中
-String s = "Java3y";
-byteBuffer.put(s.getBytes());
+  // 添加一些数据到缓冲区中
+  String s = "Java3y";
+  byteBuffer.put(s.getBytes());
 
-// 看一下初始时4个核心变量的值
-System.out.println("put完之后-->limit--->"+byteBuffer.limit());
-System.out.println("put完之后-->position--->"+byteBuffer.position());
-System.out.println("put完之后-->capacity--->"+byteBuffer.capacity());
-System.out.println("put完之后-->mark--->" + byteBuffer.mark());
+  // 看一下初始时4个核心变量的值
+  System.out.println("put完之后-->limit--->"+byteBuffer.limit());
+  System.out.println("put完之后-->position--->"+byteBuffer.position());
+  System.out.println("put完之后-->capacity--->"+byteBuffer.capacity());
+  System.out.println("put完之后-->mark--->" + byteBuffer.mark());
 }
 ```
 
